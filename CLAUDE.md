@@ -11,7 +11,7 @@ If this is still the template (the package is `@falkenslab/mcp-server-template`)
 ## Commands
 
 - `npm install`, then `npm run build` writes `dist/server.mjs`, the whole server in one file (ADR-001).
-- `npm run typecheck`, `npm run lint`, `npm test` (all tests), `npx tsx --test test/requirements.test.ts` (one file).
+- `npm run typecheck`, `npm run lint`, `npm test` (all tests), `npm test -- test/requirements.test.ts` (one file).
 - `npm run check` starts the bundle and checks its `tools/list` strictly: every tool with a title, a description, both schemas and `readOnlyHint`.
 - `npm run inspect` opens the MCP Inspector on the bundle.
 - Docs: `cd docs && npm install`, `npm run tools` (the tools reference from the bundle; build the server first), `npm start` (English) or `npm run start:es`, `npm run build`.

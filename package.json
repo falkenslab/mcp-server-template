@@ -4,21 +4,36 @@
   "description": "A Falken's Lab MCP server.",
   "license": "MIT",
   "author": "Falken's Lab",
-  "repository": { "type": "git", "url": "git+https://github.com/falkenslab/mcp-server-template.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/falkenslab/mcp-server-template.git"
+  },
   "homepage": "https://falkenslab.github.io/mcp-server-template/",
-  "bugs": { "url": "https://github.com/falkenslab/mcp-server-template/issues" },
-  "keywords": ["mcp", "model-context-protocol", "agent-kit"],
+  "bugs": {
+    "url": "https://github.com/falkenslab/mcp-server-template/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "agent-kit"
+  ],
   "type": "module",
-  "bin": { "mcp-server-template": "dist/server.mjs" },
-  "files": ["dist/server.mjs"],
-  "engines": { "node": ">=20" },
+  "bin": {
+    "mcp-server-template": "dist/server.mjs"
+  },
+  "files": [
+    "dist/server.mjs"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "init": "node scripts/init.mjs",
     "build": "node scripts/build.mjs",
     "dev": "node scripts/build.mjs --watch",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "test": "tsx --test --test-concurrency=1 \"test/**/*.test.ts\"",
+    "test": "node scripts/test.mjs",
     "check": "node scripts/check-tools.mjs",
     "inspect": "npx @modelcontextprotocol/inspector node dist/server.mjs",
     "prepublishOnly": "npm run typecheck && npm run lint && npm test && npm run build && npm run check"
