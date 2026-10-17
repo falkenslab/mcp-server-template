@@ -1,6 +1,7 @@
 # Builds the documentation site (docs/) on every pull request, and publishes it to GitHub Pages on every
-# push to main. The tools reference is generated from the built server's own tools/list, so a change in
-# src/ rebuilds the site too. GitHub Pages must use "GitHub Actions" as its source.
+# push to main; in the template itself, which has no server to document, it only checks the site builds.
+# The tools reference is generated from the built server's own tools/list, so a change in src/ rebuilds
+# the site too. GitHub Pages must use "GitHub Actions" as its source.
 name: Documentation
 
 on:
@@ -44,13 +45,13 @@ jobs:
         run: npm run build
         working-directory: docs
       - name: Upload the site
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && !github.event.repository.is_template
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/build
 
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && !github.event.repository.is_template
     needs: build
     runs-on: ubuntu-latest
     permissions:

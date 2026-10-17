@@ -7,12 +7,11 @@
 **A Falken's Lab MCP server.**<br/>
 The starting point for Falken's Lab's MCP servers: one bundled file, tests, docs in English and Spanish, ready for agent-kit.
 
-[![npm](https://img.shields.io/npm/v/@falkenslab/mcp-server-template?color=cb3837&logo=npm)](https://www.npmjs.com/package/@falkenslab/mcp-server-template)
 ![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)
 ![MCP server](https://img.shields.io/badge/MCP-server-0b0b0b)
 [![License: MIT](https://img.shields.io/badge/license-MIT-16a34a)](LICENSE)
 
-**[📖 Documentation](https://falkenslab.github.io/mcp-server-template/)** · [📖 Documentación en español](https://falkenslab.github.io/mcp-server-template/es/)
+**[🧩 Use this template](https://github.com/falkenslab/mcp-server-template/generate)**
 
 </div>
 
@@ -47,13 +46,16 @@ npm run build && npm run check
 | 🛠️ Tools | `server_info`, one file per tool in `src/tools/`, `reply()` for structured results |
 | 🔧 Requirements | `src/requirements.ts`: `check_requirements` and `needs()`, only when a server needs programs |
 | 🧪 Checks | `npm test`, `npm run check` (strict `tools/list`), typecheck and lint, CI |
-| 📖 Docs | `docs/`, Docusaurus in English and Spanish, published to GitHub Pages |
+| 📖 Docs | `docs/`, Docusaurus in English and Spanish, published to GitHub Pages by each server (the template only builds it) |
 | 🧠 Design | `.minispec/` (project, conventions, ADRs), `CLAUDE.md` |
 
 ## 📚 Documentation
 
-- **[Getting started](https://falkenslab.github.io/mcp-server-template/getting-started)**: installing the server in an agent or in Claude Code.
-- **[Tools](https://falkenslab.github.io/mcp-server-template/reference/tools)**: every tool, generated from the server.
+The template has no site of its own: `docs/` is the one each server publishes. What a new server needs is here:
+
+- **[CLAUDE.md](CLAUDE.md)**: the commands, how the pieces fit, and the skills in `.claude/skills/` (adding a tool, checks, docs, releases).
+- **[.minispec/](.minispec/README.md)**: the project, its conventions and the decisions every Falken's Lab server shares.
+- **[docs/](docs/)**: the site's skeleton, with getting started, the tools reference generated from the server and the releases; `cd docs && npm install && npm start` previews it.
 
 ## 🛠️ Developing
 
