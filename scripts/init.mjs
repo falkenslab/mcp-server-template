@@ -32,4 +32,7 @@ const walk = (dir) => {
   }
 };
 walk(root);
+// The template is private so it can't be published by mistake; the new server is meant to be published.
+const manifest = path.join(root, "package.json");
+writeFileSync(manifest, readFileSync(manifest, "utf8").replace(/\n {2}"private": true,/, ""));
 console.log(`${changed} files now say ${name}. Next: npm install, then read CLAUDE.md, and remove scripts/init.mjs and the "init" script.`);

@@ -1,6 +1,7 @@
 {
   "name": "@falkenslab/mcp-server-template",
   "version": "0.0.0",
+  "private": true,
   "description": "A Falken's Lab MCP server.",
   "license": "MIT",
   "author": "Falken's Lab",
