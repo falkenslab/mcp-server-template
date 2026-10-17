@@ -6,6 +6,7 @@ src/
 ├── createServer.ts    the McpServer with its instructions and tools (tests connect to it in memory)
 ├── instructions.ts    the rules every client reads
 ├── version.ts         name, version and command, from package.json
+├── settings.ts        setting(): environment variables, unexpanded placeholders as not set
 ├── dataDir.ts         where state and caches live
 ├── requirements.ts    programs the person installs apart: checked, explained, never installed
 └── tools/

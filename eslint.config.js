@@ -10,6 +10,10 @@ export default tseslint.config(
   {
     // stdout is the MCP channel: anything printed there corrupts the protocol.
     files: ["src/**/*.ts"],
-    rules: { "no-console": ["error", { allow: ["error"] }] },
+    // Settings go through setting(), which treats an unexpanded ${user_config.*} as not set.
+    rules: {
+      "no-console": ["error", { allow: ["error"] }],
+      "no-restricted-syntax": ["error", { selector: "MemberExpression[object.object.name='process'][object.property.name='env']", message: "Read settings with setting() from src/settings.ts." }],
+    },
   },
 );

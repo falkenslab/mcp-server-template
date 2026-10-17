@@ -21,6 +21,7 @@ If this is still the template (`package.json` says `"private": true`), turn it i
 
 - A tool is a file in `src/tools/` registered in `src/tools/index.ts`; `serverInfo.ts` shows the house style. The domain's logic lives in its own modules under `src/`, not in tool files.
 - A program the person installs apart goes in `REQUIREMENTS` (`src/requirements.ts`); then `check_requirements` appears, `server_info` reports it, and tools that need it start with `await needs("<program>")`. Copy the same requirements into the extension's `plugin.json` (`metadata["agent-kit"].requirements`).
+- Settings are read with `setting("<VARIABLE>")` (`src/settings.ts`), never `process.env` directly: an extension's `${user_config.*}` reaches Codex unexpanded, and `setting()` treats it as not set.
 - State and caches go in `dataDir()`.
 - stdout is the MCP channel: log to stderr only.
 

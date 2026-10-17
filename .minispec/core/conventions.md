@@ -8,6 +8,7 @@
 - Tools return `structuredContent` matching the `outputSchema`, plus the same data as JSON text (`reply()`). Schemas avoid nullable types: an optional field instead.
 - A tool that can return a long list takes `limit` and `offset` and returns `more`; its description says so.
 - stdout belongs to the MCP protocol: logs and diagnostics go to stderr only (ESLint enforces it in `src/`).
+- Settings are environment variables read only through `setting()` (`src/settings.ts`), which treats an unexpanded `${…}` placeholder as not set: Codex runs extensions without their options. A required setting that's missing makes the tools that need it say so and how to set it; the server never fails at startup for it.
 - State and caches live in `dataDir()` (`CLAUDE_PLUGIN_DATA` in an extension), never next to the code.
 - A program the person installs apart is a `Requirement` in `src/requirements.ts`; a tool that needs it starts with `await needs("<program>")` (ADR-004).
 - No credentials anywhere in the repo: code, tests, fixtures, docs.
