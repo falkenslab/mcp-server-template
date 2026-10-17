@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 `@falkenslab/mcp-server-template`: A Falken's Lab MCP server. An MCP server over stdio, bundled into one file and run with `npx`; agents built on agent-kit get it through its extension in [agent-kit-extensions](https://github.com/falkenslab/agent-kit-extensions). Read `.minispec/README.md` first: it says what to read for each task.
 
-If this is still the template (the package is `@falkenslab/mcp-server-template`), turn it into a server with `npm run init -- <name> "<description>"`, then rewrite `.minispec/core/project.md` and the README for it.
+If this is still the template (`package.json` says `"private": true`), turn it into a server with `npm run init -- <name> "<description>"`, then rewrite `.minispec/core/project.md` and the README for it.
 
 ## Commands
 
@@ -23,6 +23,10 @@ If this is still the template (the package is `@falkenslab/mcp-server-template`)
 - A program the person installs apart goes in `REQUIREMENTS` (`src/requirements.ts`); then `check_requirements` appears, `server_info` reports it, and tools that need it start with `await needs("<program>")`. Copy the same requirements into the extension's `plugin.json` (`metadata["agent-kit"].requirements`).
 - State and caches go in `dataDir()`.
 - stdout is the MCP channel: log to stderr only.
+
+## Skills
+
+`.claude/skills/` has the workflows: `add-tool`, `verify`, `commit`, `update-docs`, `release` (only when the owner asks), `upgrade-deps`, and MiniSpec's `minispec-feature`, `minispec-bugfix`, `minispec-adr`, `minispec-implement` and `sync-issues`, which keep `.minispec/features/` and the GitHub issues together.
 
 ## Conventions
 
