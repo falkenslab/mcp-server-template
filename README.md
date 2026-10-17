@@ -36,7 +36,7 @@ npm run init -- docker-lab-mcp "Hands-on practices in Docker, safe by default."
 npm run build && npm run check
 ```
 
-`init` renames the package, the command, the links and the docs. Then rewrite `.minispec/core/project.md` and this README for the new server, and add its tools in `src/tools/`.
+`init` renames the package, the command, the links and the docs, and notes in `.minispec/core/stack.md` the template's commit it comes from, so later fixes here can be found with `git log <commit>..main`. Then rewrite `.minispec/core/project.md` and this README for the new server, and add its tools in `src/tools/`.
 
 ## 🧰 What's inside
 
