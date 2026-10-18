@@ -25,6 +25,9 @@
   "files": [
     "dist/server.mjs"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": ">=20"
   },
